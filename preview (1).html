@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Surprise For Rafia 💖</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+overflow:hidden;
+height:100vh;
+}
+
+.page{
+display:none;
+height:100vh;
+width:100%;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:20px;
+color:white;
+animation:fade 1s ease;
+}
+
+.active{
+display:flex;
+}
+
+h1{
+font-size:3rem;
+margin-bottom:20px;
+text-shadow:0 4px 15px rgba(0,0,0,.25);
+}
+
+p{
+font-size:1.2rem;
+max-width:800px;
+line-height:1.8;
+}
+
+button{
+padding:12px 30px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+font-size:1rem;
+margin:10px;
+background:white;
+color:#ff4d8d;
+font-weight:bold;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+input{
+padding:12px;
+border:none;
+border-radius:10px;
+width:220px;
+font-size:1rem;
+text-align:center;
+margin:15px;
+}
+
+.bg1{background:linear-gradient(135deg,#ff9a9e,#fad0c4);}
+.bg2{background:linear-gradient(135deg,#a18cd1,#fbc2eb);}
+.bg3{background:linear-gradient(135deg,#ff758c,#ff7eb3);}
+.bg4{background:linear-gradient(135deg,#84fab0,#8fd3f4);}
+.bg5{background:linear-gradient(135deg,#f6d365,#fda085);}
+.bg6{background:linear-gradient(135deg,#c471f5,#fa71cd);}
+.bg7{background:linear-gradient(135deg,#43e97b,#38f9d7);}
+.bg8{background:linear-gradient(135deg,#fa709a,#fee140);}
+
+.message{
+margin-top:15px;
+font-weight:bold;
+font-size:1.1rem;
+}
+
+.hearts{
+position:relative;
+width:320px;
+height:320px;
+}
+
+.heart{
+position:absolute;
+font-size:50px;
+cursor:pointer;
+transition:.4s;
+}
+
+.heart.selected{
+transform:scale(1.4);
+filter:drop-shadow(0 0 10px white);
+}
+
+.decor{
+font-size:70px;
+animation:bounce 1.5s infinite;
+}
+
+.cake{
+font-size:180px;
+}
+
+.wish{
+margin-top:25px;
+font-size:1.5rem;
+font-weight:bold;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:scale(.9);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+@keyframes bounce{
+50%{
+transform:translateY(-15px);
+}
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page bg1 active" id="page1">
+<h1>🔐 Birthday Surprise For Rafia 💖</h1>
+<p>Enter the secret PIN to begin your birthday journey ✨</p>
+
+<input type="password" id="password" placeholder="Enter PIN">
+
+<button onclick="checkPassword()">Proceed</button>
+
+<div id="passMsg" class="message"></div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page bg2" id="page2">
+
+<h1>💖 Connect The 5 Hearts 💖</h1>
+
+<p>Tap all 5 hearts to unlock the next surprise.</p>
+
+<div class="hearts">
+<div class="heart" style="top:0;left:130px;">❤️</div>
+<div class="heart" style="top:90px;left:250px;">❤️</div>
+<div class="heart" style="top:230px;left:200px;">❤️</div>
+<div class="heart" style="top:230px;left:50px;">❤️</div>
+<div class="heart" style="top:90px;left:0;">❤️</div>
+</div>
+
+<div id="heartMsg"></div>
+
+</div>
+
+<!-- PAGE 3 -->
+<div class="page bg3" id="page3">
+
+<h1>🎁 I Have A Surprise For You</h1>
+
+<p>Do you wanna see it, Rafia? 💕</p>
+
+<button onclick="showNo()">No</button>
+<button onclick="nextPage(4)">Yes</button>
+
+<div id="noText" class="message"></div>
+
+</div>
+
+<!-- PAGE 4 -->
+<div class="page bg4" id="page4">
+
+<h1>✨ Are You Ready For The Surprise? ✨</h1>
+
+<p>Tap the button below when you're ready.</p>
+
+<button onclick="nextPage(5)">READY 💖</button>
+
+</div>
+
+<!-- PAGE 5 -->
+<div class="page bg5" id="page5">
+
+<h1>🎂 Happy Birthday Rafia! 🎂</h1>
+
+<p>
+Dear Rafia 💖,<br><br>
+
+Today is your special day and it deserves to be celebrated
+with happiness, love, laughter and beautiful memories.
+
+May your smile always shine brightly,
+may your dreams come true,
+and may every day bring you new reasons to be happy. 🌸✨
+
+You are wonderful, kind and truly special.
+Never stop being the amazing person you are.
+
+Happy Birthday Rafia! 🎉💕
+</p>
+
+<button onclick="showDecor()">Decor 🎈</button>
+
+<div id="decorArea"></div>
+
+</div>
+
+<!-- PAGE 6 -->
+<div class="page bg6" id="page6">
+
+<h1>🎉 Birthday Decoration 🎉</h1>
+
+<div class="decor">
+🎈 🎊 🎀 ✨ 🎉 🌸 🎈
+</div>
+
+<br>
+
+<button onclick="nextPage(7)">Show Cake 🎂</button>
+
+</div>
+
+<!-- PAGE 7 -->
+<div class="page bg7" id="page7">
+
+<h1>🎂 Your Birthday Cake 🎂</h1>
+
+<div class="cake">🎂</div>
+
+<p>Now let's blow the candles and make wishes! ✨</p>
+
+<button onclick="nextPage(8)">Continue 🕯️</button>
+
+</div>
+
+<!-- PAGE 8 -->
+<div class="page bg8" id="page8">
+
+<h1>🕯️ Blow The Candles 🕯️</h1>
+
+<p>Click each candle to reveal a special wish.</p>
+
+<button onclick="blowCandle(1)">🕯️ Candle 1</button>
+<button onclick="blowCandle(2)">🕯️ Candle 2</button>
+<button onclick="blowCandle(3)">🕯️ Candle 3</button>
+
+<div class="wish" id="wishText"></div>
+
+</div>
+
+<!-- PAGE 9 -->
+<div class="page bg1" id="page9">
+
+<h1>💖 A Beautiful Surprise For Rafia From Filza 💖</h1>
+
+<p>
+My Dearest Rafia 💕,<br><br>
+
+Happy Birthday to someone truly special.
+
+Your kindness, beautiful heart and wonderful smile make
+everyone around you happier.
+
+May your life always be filled with happiness,
+success, love, good health and unforgettable memories. 🌷✨
+
+Thank you for being such an amazing person.
+
+May all your wishes come true and may every new day
+bring something beautiful into your life.
+
+With lots of love and warm wishes,
+
+💖 Filza 💖
+</p>
+
+<br>
+
+<h2>Did You Like It? 😊</h2>
+
+<button onclick="alert('Yayyy! 💖 Happy Birthday Rafia! 🎉')">YES 💕</button>
+
+<button onclick="alert('Aww 🥺 Filza will make an even bigger surprise next time!')">NO 😅</button>
+
+</div>
+
+<script>
+
+function nextPage(page){
+document.querySelectorAll('.page').forEach(p=>{
+p.classList.remove('active');
+});
+document.getElementById('page'+page).classList.add('active');
+}
+
+function checkPassword(){
+
+let pass=document.getElementById('password').value;
+
+if(pass==="1234"){
+nextPage(2);
+}
+else{
+document.getElementById('passMsg').innerHTML=
+"❌ Oops! You entered the password wrong. Try another one.";
+}
+}
+
+let selected=0;
+
+document.querySelectorAll('.heart').forEach(heart=>{
+
+heart.addEventListener('click',()=>{
+
+if(!heart.classList.contains('selected')){
+
+heart.classList.add('selected');
+
+selected++;
+
+if(selected===5){
+
+document.getElementById('heartMsg').innerHTML=
+"<br><button onclick='nextPage(3)'>Continue 💖</button>";
+
+}
+}
+});
+});
+
+function showNo(){
+
+document.getElementById('noText').innerHTML=
+"🥺 You don't wanna see it? It's made especially for you!";
+
+}
+
+function showDecor(){
+
+document.getElementById('decorArea').innerHTML=
+`
+<br>
+<div style="font-size:60px;">
+🎈🎉🎊✨🎀🌸💖🎈
+</div>
+<br>
+<button onclick="nextPage(6)">Continue ➜</button>
+`;
+
+}
+
+function blowCandle(num){
+
+if(num===1){
+
+document.getElementById('wishText').innerHTML=
+"🌟 Wish 1: May all your dreams come true, Rafia.";
+
+}
+
+if(num===2){
+
+document.getElementById('wishText').innerHTML=
+"💖 Wish 2: May happiness and love always stay with you.";
+
+}
+
+if(num===3){
+
+document.getElementById('wishText').innerHTML=
+"🎉 Wish 3: May success follow you everywhere you go.";
+
+setTimeout(()=>{
+nextPage(9);
+},2500);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
